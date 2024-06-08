@@ -224,6 +224,13 @@ public final class TankDrive {
         // TODO: make sure your config has motors with these names (or change them)
         //   add additional motors on each side if you have them
         //   see https://ftc-docs.firstinspires.org/en/latest/hardware_and_software_configuration/configuring/index.html
+
+        // Lesson 1: Adding motors to the robot
+        //   - Add the motors to the hardware map
+        //   - Add the motors to the list of motors in the constructor
+        //   - Add the motors to the list of motors in the localizer
+        //   - Add the motors to the list of motors in the tank command
+        //   - Add the motors to the list of motors in the drive command
         leftMotors = Arrays.asList(hardwareMap.get(DcMotorEx.class, "left"));
         rightMotors = Arrays.asList(hardwareMap.get(DcMotorEx.class, "right"));
 
@@ -448,6 +455,10 @@ public final class TankDrive {
             c.fillCircle(turn.beginPose.position.x, turn.beginPose.position.y, 2);
         }
     }
+
+//    public Action turnAction(double targetHeading) {
+//        return new TurnAction(new TimeTurn(pose, targetHeading, new TurnConstraints(PARAMS.maxAngVel, -PARAMS.maxAngAccel, PARAMS.maxAngAccel) ));
+//    }
 
     public PoseVelocity2d updatePoseEstimate() {
         Twist2dDual<Time> twist = localizer.update();
